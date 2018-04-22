@@ -40,8 +40,8 @@ public class chat extends AppCompatActivity {
         scrollView = (ScrollView)findViewById(R.id.scrollView);
 
         Firebase.setAndroidContext(this);
-        reference1 = new Firebase("https://therapu-8822e.firebaseio.com/messages/" + userdetails.email + "_" + userdetails.chatsWith);
-        reference2 = new Firebase("https://therapu-8822e.firebaseio.com/messages/" + userdetails.chatsWith + "_" + userdetails.email);
+        reference1 = new Firebase("https://therapu-8822e.firebaseio.com/messages/" + userdetails.username + "_" + userdetails.chatsWith);
+        reference2 = new Firebase("https://therapu-8822e.firebaseio.com/messages/" + userdetails.chatsWith + "_" + userdetails.username);
 
         sendButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -51,7 +51,7 @@ public class chat extends AppCompatActivity {
                 if(!messageText.equals("")){
                     Map<String, String> map = new HashMap<String, String>();
                     map.put("message", messageText);
-                    map.put("user", userdetails.email);
+                    map.put("user", userdetails.username);
                     reference1.push().setValue(map);
                     reference2.push().setValue(map);
                     messageArea.setText("");
@@ -66,7 +66,7 @@ public class chat extends AppCompatActivity {
                 String message = map.get("message").toString();
                 String userName = map.get("user").toString();
 
-                if(userName.equals(userdetails.email)){
+                if(userName.equals(userdetails.username)){
                     addMessageBox("You:-\n" + message, 1);
                 }
                 else{

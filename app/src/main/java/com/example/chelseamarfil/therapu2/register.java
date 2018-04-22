@@ -38,16 +38,11 @@ public class register extends AppCompatActivity {
 
         Firebase.setAndroidContext(this);
 
-        login.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(register.this, LoginActivity.class));
-            }
-        });
 
         registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                openChat();
                 user = username.getText().toString();
                 pass = password.getText().toString();
 
@@ -114,5 +109,9 @@ public class register extends AppCompatActivity {
                 }
             }
         });
+    }
+    public void openChat(){
+        Intent intent = new Intent(this, chat.class);
+        startActivity(intent);
     }
 }

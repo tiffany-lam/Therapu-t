@@ -77,7 +77,7 @@ public class user extends AppCompatActivity {
             while(i.hasNext()){
                 key = i.next().toString();
 
-                if(!key.equals(userdetails.email)) {
+                if(!key.equals(userdetails.username)) {
                     al.add(key);
                 }
 

@@ -5,6 +5,7 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.method.LinkMovementMethod;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -26,27 +27,27 @@ public class LoginActivity extends AppCompatActivity {
     EditText username, password;
     Button loginButton;
     String user, pass;
+    TextView registertext;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        registertext = (TextView)findViewById(R.id.register);
+
 
         registerUser = (TextView)findViewById(R.id.register);
         username = (EditText)findViewById(R.id.username);
         password = (EditText)findViewById(R.id.password);
         loginButton = (Button)findViewById(R.id.loginButton);
 
-        registerUser.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(LoginActivity.this, register.class));
-            }
-        });
+
 
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                openChat();
+
                 user = username.getText().toString();
                 pass = password.getText().toString();
 
@@ -76,7 +77,7 @@ public class LoginActivity extends AppCompatActivity {
                                         Toast.makeText(LoginActivity.this, "user not found", Toast.LENGTH_LONG).show();
                                     }
                                     else if(obj.getJSONObject(user).getString("password").equals(pass)){
-                                        userdetails.email = user;
+                                        userdetails.username = user;
                                         userdetails.password = pass;
                                         startActivity(new Intent(LoginActivity.this, user.class));
                                     }
@@ -104,5 +105,9 @@ public class LoginActivity extends AppCompatActivity {
 
             }
         });
+    }
+    public void openChat(){
+        Intent intent = new Intent(this, chat.class);
+        startActivity(intent);
     }
 }
