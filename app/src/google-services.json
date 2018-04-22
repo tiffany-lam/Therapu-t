@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "208795966382",
+    "firebase_url": "https://therapu-8822e.firebaseio.com",
+    "project_id": "therapu-8822e",
+    "storage_bucket": "therapu-8822e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:208795966382:android:8e2b004e3a663779",
+        "android_client_info": {
+          "package_name": "com.example.chelseamarfil.therapu2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "208795966382-t6q9eqevefrpektcuctboo3atu9ikmhf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCH7SwdjqMWYlTlV-FcuZoU-O1emrKHeBg"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
